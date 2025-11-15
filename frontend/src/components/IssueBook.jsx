@@ -52,8 +52,13 @@ const IssueBook = ({ apiCall }) => {
   };
 
   return (
-    <div>
-      <h2 className="mb-4">Issue Book</h2>
+    <div className="page-transition">
+      <div className="text-center mb-4">
+        <h1 className="brand-title">Survex</h1>
+        <p className="brand-subtitle mb-4">Library Management System</p>
+      </div>
+      
+      <h2 className="mb-4 text-center"><i className="fas fa-hand-holding me-2 text-warning"></i>Issue Book</h2>
       
       {error && (
         <div className="alert alert-danger" role="alert">
@@ -61,8 +66,8 @@ const IssueBook = ({ apiCall }) => {
         </div>
       )}
       
-      <div className="card">
-        <div className="card-body">
+      <div className="modern-card mx-auto" style={{maxWidth: '700px'}}>
+        <div className="card-body p-5">
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label className="form-label">Select Book *</label>
@@ -115,32 +120,49 @@ const IssueBook = ({ apiCall }) => {
         </div>
       </div>
       
-      <div className="mt-4">
-        <h5>Available Books ({books.length})</h5>
-        <div className="table-responsive">
-          <table className="table table-sm">
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Category</th>
-              </tr>
-            </thead>
-            <tbody>
-              {books.slice(0, 10).map(book => (
-                <tr key={book.id}>
-                  <td>{book.title}</td>
-                  <td>{book.author}</td>
-                  <td>{book.category}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          {books.length > 10 && (
-            <small className="text-muted">Showing first 10 books...</small>
-          )}
+      <div className="mt-5">
+        <div className="modern-card">
+          <div className="card-header bg-white border-0 py-3">
+            <h5 className="mb-0 fw-bold text-center">
+              <i className="fas fa-books me-2 text-info"></i>
+              Available Books ({books.length})
+            </h5>
+          </div>
+          <div className="card-body">
+            <div className="table-responsive">
+              <table className="table table-hover mb-0">
+                <thead className="bg-light">
+                  <tr>
+                    <th className="fw-bold">Title</th>
+                    <th className="fw-bold">Author</th>
+                    <th className="fw-bold">Category</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {books.slice(0, 10).map(book => (
+                    <tr key={book.id}>
+                      <td>{book.title}</td>
+                      <td>{book.author}</td>
+                      <td><span className="badge bg-secondary">{book.category}</span></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              {books.length > 10 && (
+                <div className="text-center mt-3">
+                  <small className="text-muted">Showing first 10 books...</small>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
+      
+      <footer className="survex-footer">
+        <div className="container">
+          <p className="mb-0">Survex – Group of Tech managed by Suryaprakash</p>
+        </div>
+      </footer>
     </div>
   );
 };

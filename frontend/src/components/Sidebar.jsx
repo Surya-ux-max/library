@@ -73,8 +73,8 @@ const Sidebar = ({ isOpen, onClose }) => {
                 <i className="fas fa-book-open text-white"></i>
               </div>
               <div>
-                <h5 className="text-white mb-0 fw-bold">Library Pro</h5>
-                <small className="text-light opacity-75">Management System</small>
+                <h5 className="text-white mb-0 fw-bold">Survex</h5>
+                <small className="text-light opacity-75">Library Management System</small>
               </div>
             </div>
             <button 

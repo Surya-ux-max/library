@@ -51,8 +51,13 @@ const Login = ({ onLogin, apiCall }) => {
                        style={{width: '80px', height: '80px'}}>
                     <i className="fas fa-book-open fa-2x text-white"></i>
                   </div>
-                  <h3 className="fw-bold text-dark mb-2">Library Pro</h3>
-                  <p className="text-muted">Sign in to your account</p>
+                  <div className="brand-container mb-3">
+                    <h2 className="brand-title mb-1" style={{fontSize: '3rem'}}>SURVEX</h2>
+                    <p className="brand-subtitle mb-1">Library Management System</p>
+                    <div className="brand-tagline" style={{fontSize: '0.85rem'}}>Technology Solutions Group</div>
+                    <div className="brand-description" style={{fontSize: '0.75rem'}}>Enterprise Software Development</div>
+                  </div>
+                  <h4 className="fw-bold text-dark">Admin Login</h4>
                 </div>
                 
                 {error && (
@@ -141,10 +146,9 @@ const Login = ({ onLogin, apiCall }) => {
                 </div>
                 
                 <div className="text-center mt-3">
-                  <small className="text-muted">
-                    <i className="fas fa-shield-alt me-1"></i>
-                    Secure Library Management System
-                  </small>
+                  <div className="text-center">
+                    <div className="company-badge" style={{fontSize: '0.65rem', padding: '3px 8px'}}>Secure Enterprise Access</div>
+                  </div>
                 </div>
               </div>
             </div>

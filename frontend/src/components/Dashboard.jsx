@@ -82,7 +82,15 @@ const Dashboard = ({ apiCall }) => {
   ];
 
   return (
-    <div className="slide-in-right">
+    <div className="page-transition dashboard-container">
+      {/* Enhanced Branding Header */}
+      <div className="brand-container mb-5">
+        <h1 className="brand-title">SURVEX</h1>
+        <div className="brand-tagline">Technology Solutions Group</div>
+        <div className="brand-description">Enterprise Software Development & Digital Innovation</div>
+        <div className="company-badge">Founded & Managed by Suryaprakash</div>
+      </div>
+      
       <div className="d-flex justify-content-between align-items-center mb-4">
         <div>
           <h2 className="fw-bold text-dark mb-1"><i className="fas fa-tachometer-alt me-2 text-primary"></i>Dashboard Overview</h2>
@@ -93,10 +101,15 @@ const Dashboard = ({ apiCall }) => {
         </button>
       </div>
       
+      {/* System & Analytics Section */}
       <div className="row g-4 mb-5">
         {statCards.map((card, index) => (
           <div key={card.key} className="col-lg-3 col-md-6 fade-in" style={{animationDelay: `${index * 0.15}s`}}>
-            <div className="card border-0 h-100 pulse" style={{background: card.gradient, borderRadius: '15px'}}>
+            <div className="modern-card analytics-card h-100" style={{
+              background: card.gradient,
+              '--gradient-start': card.gradient.split(' ')[2],
+              '--gradient-end': card.gradient.split(' ')[5]
+            }}>
               <div className="card-body text-white p-4">
                 <div className="d-flex justify-content-between align-items-center">
                   <div>
@@ -108,8 +121,8 @@ const Dashboard = ({ apiCall }) => {
                   </div>
                 </div>
                 <div className="mt-3">
-                  <div className="progress" style={{height: '4px', background: 'rgba(255,255,255,0.3)'}}>
-                    <div className="progress-bar bg-white" style={{width: '75%'}}></div>
+                  <div className="progress" style={{height: '6px', background: 'rgba(255,255,255,0.3)', borderRadius: '10px'}}>
+                    <div className="progress-bar bg-white" style={{width: '75%', borderRadius: '10px'}}></div>
                   </div>
                 </div>
               </div>
@@ -118,19 +131,20 @@ const Dashboard = ({ apiCall }) => {
         ))}
       </div>
       
+      {/* Quick Actions - Modernized */}
       <div className="row">
         <div className="col-12">
-          <div className="card border-0 shadow-sm">
-            <div className="card-header bg-white border-0 py-3">
-              <h5 className="mb-0 fw-bold"><i className="fas fa-bolt me-2 text-warning"></i>Quick Actions</h5>
+          <div className="modern-card">
+            <div className="card-header bg-white border-0 py-4">
+              <h5 className="mb-0 fw-bold text-center"><i className="fas fa-bolt me-2 text-warning"></i>Quick Actions</h5>
             </div>
-            <div className="card-body">
-              <div className="row g-3">
+            <div className="card-body p-4">
+              <div className="row g-4">
                 {quickActions.map((action, index) => (
                   <div key={action.to} className="col-lg-4 col-md-6">
                     <Link to={action.to} className="text-decoration-none">
-                      <div className={`card border-0 bg-${action.color} text-white h-100 hover-lift`}>
-                        <div className="card-body text-center py-4">
+                      <div className={`modern-card bg-${action.color} text-white h-100`} style={{minHeight: '120px'}}>
+                        <div className="card-body text-center py-4 d-flex flex-column justify-content-center">
                           <i className={`${action.icon} fa-2x mb-3`}></i>
                           <h6 className="mb-0 fw-bold">{action.title}</h6>
                         </div>
@@ -191,6 +205,14 @@ const Dashboard = ({ apiCall }) => {
           </div>
         </div>
       </div>
+      
+      {/* Survex Footer */}
+      <footer className="survex-footer">
+        <div className="container">
+          <p className="mb-0">SURVEX Technology Solutions Group | Enterprise Software Development & Digital Innovation</p>
+          <small style={{opacity: 0.8}}>Founded & Managed by Suryaprakash</small>
+        </div>
+      </footer>
     </div>
   );
 };

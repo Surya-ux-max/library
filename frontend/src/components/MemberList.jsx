@@ -54,24 +54,40 @@ const MemberList = ({ apiCall }) => {
   if (loading) return <div className="text-center">Loading...</div>;
 
   return (
-    <div>
+    <div className="page-transition">
+      <div className="text-center mb-4">
+        <h1 className="brand-title">Survex</h1>
+        <p className="brand-subtitle mb-4">Library Management System</p>
+      </div>
+      
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2>Members</h2>
-        <a href="/add-member" className="btn btn-primary">Add New Member</a>
+        <h2 className="fw-bold text-dark"><i className="fas fa-users me-2"></i>Members Management</h2>
+        <a href="/add-member" className="btn btn-primary">
+          <i className="fas fa-user-plus me-2"></i>Add New Member
+        </a>
       </div>
 
-      <div className="mb-3">
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Search members by name, email, or phone..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
+      <div className="modern-card mb-4">
+        <div className="card-body p-4">
+          <div className="input-group">
+            <span className="input-group-text border-0 bg-light">
+              <i className="fas fa-search text-muted"></i>
+            </span>
+            <input
+              type="text"
+              className="form-control border-0 bg-light"
+              placeholder="Search members by name, email, or phone..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              style={{borderRadius: '0 15px 15px 0'}}
+            />
+          </div>
+        </div>
       </div>
 
-      <div className="table-responsive">
-        <table className="table table-striped">
+      <div className="modern-card">
+        <div className="table-responsive">
+          <table className="table table-hover mb-0">
           <thead>
             <tr>
               <th>ID</th>
@@ -174,14 +190,23 @@ const MemberList = ({ apiCall }) => {
               </tr>
             ))}
           </tbody>
-        </table>
-      </div>
-
-      {filteredMembers.length === 0 && (
-        <div className="text-center text-muted">
-          No members found matching your search.
+          </table>
         </div>
-      )}
+        
+        {filteredMembers.length === 0 && (
+          <div className="text-center py-5">
+            <i className="fas fa-users fa-3x text-muted mb-3"></i>
+            <h5 className="text-muted">No members found</h5>
+            <p className="text-muted">Try adjusting your search criteria</p>
+          </div>
+        )}
+      </div>
+      
+      <footer className="survex-footer">
+        <div className="container">
+          <p className="mb-0">Survex – Group of Tech managed by Suryaprakash</p>
+        </div>
+      </footer>
     </div>
   );
 };

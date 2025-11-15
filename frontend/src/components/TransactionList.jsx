@@ -41,11 +41,17 @@ const TransactionList = ({ apiCall }) => {
   if (loading) return <div className="text-center">Loading...</div>;
 
   return (
-    <div>
-      <h2 className="mb-4">Transactions</h2>
+    <div className="page-transition">
+      <div className="text-center mb-4">
+        <h1 className="brand-title">Survex</h1>
+        <p className="brand-subtitle mb-4">Library Management System</p>
+      </div>
       
-      <div className="table-responsive">
-        <table className="table table-striped">
+      <h2 className="mb-4 text-center"><i className="fas fa-exchange-alt me-2 text-info"></i>Transaction History</h2>
+      
+      <div className="modern-card">
+        <div className="table-responsive">
+          <table className="table table-hover mb-0">
           <thead>
             <tr>
               <th>ID</th>
@@ -85,32 +91,66 @@ const TransactionList = ({ apiCall }) => {
               </tr>
             ))}
           </tbody>
-        </table>
-      </div>
-
-      {transactions.length === 0 && (
-        <div className="text-center text-muted">
-          No transactions found.
+          </table>
         </div>
-      )}
+        
+        {transactions.length === 0 && (
+          <div className="text-center py-5">
+            <i className="fas fa-exchange-alt fa-3x text-muted mb-3"></i>
+            <h5 className="text-muted">No transactions found</h5>
+            <p className="text-muted">Start issuing books to see transaction history</p>
+          </div>
+        )}
+      </div>
       
-      <div className="mt-4">
-        <div className="row">
-          <div className="col-md-6">
-            <div className="card">
-              <div className="card-header">
-                <h6>Transaction Summary</h6>
+      <div className="mt-5">
+        <div className="row justify-content-center">
+          <div className="col-md-8">
+            <div className="modern-card">
+              <div className="card-header bg-white border-0 py-3">
+                <h5 className="mb-0 fw-bold text-center">
+                  <i className="fas fa-chart-bar me-2 text-primary"></i>
+                  Transaction Summary
+                </h5>
               </div>
-              <div className="card-body">
-                <p>Total Transactions: {transactions.length}</p>
-                <p>Active Issues: {transactions.filter(t => !t.return_date).length}</p>
-                <p>Completed Returns: {transactions.filter(t => t.return_date).length}</p>
-                <p>Total Fines Collected: ₹{transactions.reduce((sum, t) => sum + t.fine, 0).toFixed(2)}</p>
+              <div className="card-body p-4">
+                <div className="row text-center">
+                  <div className="col-6 col-md-3 mb-3">
+                    <div className="p-3">
+                      <h4 className="text-primary fw-bold">{transactions.length}</h4>
+                      <small className="text-muted">Total Transactions</small>
+                    </div>
+                  </div>
+                  <div className="col-6 col-md-3 mb-3">
+                    <div className="p-3">
+                      <h4 className="text-warning fw-bold">{transactions.filter(t => !t.return_date).length}</h4>
+                      <small className="text-muted">Active Issues</small>
+                    </div>
+                  </div>
+                  <div className="col-6 col-md-3 mb-3">
+                    <div className="p-3">
+                      <h4 className="text-success fw-bold">{transactions.filter(t => t.return_date).length}</h4>
+                      <small className="text-muted">Completed Returns</small>
+                    </div>
+                  </div>
+                  <div className="col-6 col-md-3 mb-3">
+                    <div className="p-3">
+                      <h4 className="text-danger fw-bold">₹{transactions.reduce((sum, t) => sum + t.fine, 0).toFixed(2)}</h4>
+                      <small className="text-muted">Total Fines</small>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      
+      <footer className="survex-footer">
+        <div className="container">
+          <p className="mb-0">Survex – Group of Tech managed by Suryaprakash</p>
+        </div>
+      </footer>
     </div>
   );
 };

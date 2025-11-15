@@ -66,7 +66,12 @@ const BookList = ({ apiCall }) => {
   );
 
   return (
-    <div className="fade-in">
+    <div className="page-transition">
+      <div className="text-center mb-4">
+        <h1 className="brand-title">Survex</h1>
+        <p className="brand-subtitle mb-4">Library Management System</p>
+      </div>
+      
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h2 className="fw-bold text-dark"><i className="fas fa-book me-2"></i>Books Management</h2>
         <a href="/add-book" className="btn btn-primary">
@@ -74,8 +79,8 @@ const BookList = ({ apiCall }) => {
         </a>
       </div>
 
-      <div className="card border-0 shadow-sm mb-4">
-        <div className="card-body">
+      <div className="modern-card mb-4">
+        <div className="card-body p-4">
           <div className="input-group">
             <span className="input-group-text border-0 bg-light">
               <i className="fas fa-search text-muted"></i>
@@ -86,12 +91,13 @@ const BookList = ({ apiCall }) => {
               placeholder="Search books by title, author, or category..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
+              style={{borderRadius: '0 15px 15px 0'}}
             />
           </div>
         </div>
       </div>
 
-      <div className="card border-0 shadow-sm">
+      <div className="modern-card">
         <div className="table-responsive">
           <table className="table table-hover mb-0">
             <thead className="bg-light">
@@ -199,6 +205,12 @@ const BookList = ({ apiCall }) => {
           </div>
         )}
       </div>
+      
+      <footer className="survex-footer">
+        <div className="container">
+          <p className="mb-0">Survex – Group of Tech managed by Suryaprakash</p>
+        </div>
+      </footer>
     </div>
   );
 };

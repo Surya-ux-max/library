@@ -39,8 +39,13 @@ const AddMember = ({ apiCall }) => {
   };
 
   return (
-    <div>
-      <h2 className="mb-4">Add New Member</h2>
+    <div className="page-transition">
+      <div className="text-center mb-4">
+        <h1 className="brand-title">Survex</h1>
+        <p className="brand-subtitle mb-4">Library Management System</p>
+      </div>
+      
+      <h2 className="mb-4 text-center"><i className="fas fa-user-plus me-2 text-success"></i>Add New Member</h2>
       
       {error && (
         <div className="alert alert-danger" role="alert">
@@ -48,8 +53,8 @@ const AddMember = ({ apiCall }) => {
         </div>
       )}
       
-      <div className="card">
-        <div className="card-body">
+      <div className="modern-card mx-auto" style={{maxWidth: '600px'}}>
+        <div className="card-body p-5">
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label className="form-label">Name *</label>
@@ -102,6 +107,12 @@ const AddMember = ({ apiCall }) => {
           </form>
         </div>
       </div>
+      
+      <footer className="survex-footer">
+        <div className="container">
+          <p className="mb-0">Survex – Group of Tech managed by Suryaprakash</p>
+        </div>
+      </footer>
     </div>
   );
 };

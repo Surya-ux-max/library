@@ -9,9 +9,11 @@ const Navbar = ({ onLogout }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark gradient-bg shadow-sm">
       <div className="container">
-        <Link className="navbar-brand fw-bold" to="/">
-          <i className="fas fa-book-open me-2"></i>
-          Library Pro
+        <Link className="navbar-brand" to="/">
+          <div className="d-flex flex-column">
+            <span className="brand-title mb-0">Survex</span>
+            <small className="brand-subtitle">Library Management System</small>
+          </div>
         </Link>
         
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">

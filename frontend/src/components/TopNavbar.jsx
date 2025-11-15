@@ -41,7 +41,13 @@ const TopNavbar = ({ onMenuToggle, onLogout }) => {
           </button>
           
           <div>
-            <h4 className="mb-0 fw-bold text-dark">{getPageTitle()}</h4>
+            <div className="d-flex align-items-center mb-2">
+              <div className="me-4">
+                <span className="brand-title me-2" style={{fontSize: '2rem', letterSpacing: '-1px'}}>SURVEX</span>
+                <small className="brand-tagline" style={{fontSize: '0.65rem', display: 'block', marginTop: '-5px'}}>Technology Solutions</small>
+              </div>
+              <h4 className="mb-0 fw-bold text-dark">{getPageTitle()}</h4>
+            </div>
             <nav aria-label="breadcrumb">
               <ol className="breadcrumb mb-0 small">
                 <li className="breadcrumb-item">
